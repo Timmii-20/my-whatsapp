@@ -34,7 +34,7 @@ CHAT_PAGE = """
 body{font-family:Arial;margin:0;background:#ECE5DD}
 .header{background:#075E54;color:white;padding:15px;font-size:18px;font-weight:bold;position:fixed;top:0;left:0;right:0}
 .chat{padding:70px 10px 80px 10px}
-.msg{background:white;padding:10px 12px;border-radius:10px;margin:8px 0;max-width:80%}
+.msg{background:white;padding:10px 12px;border-radius:10px;margin:8px 0;max-width:80%;word-wrap:break-word}
 .me{background:#DCF8C6;margin-left:auto}
 small{color:#888;font-size:11px}
 .sendbox{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;padding:10px;gap:8px}
@@ -53,7 +53,7 @@ small{color:#888;font-size:11px}
 <input type="text" name="text" placeholder="Type a message..." required autocomplete="off">
 <button type="submit">➤</button>
 </form>
-<script>window.scrollTo(0,document.body.scrollHeight); setTimeout(()=>{location.reload()}, 5000);</script>
+<script>window.scrollTo(0,document.body.scrollHeight); setInterval(()=>{let i=document.querySelector('.sendbox input'); if(document.activeElement!==i && i.value.trim()===""){location.reload()}}, 5000);</script>
 </body></html>
 """
 
