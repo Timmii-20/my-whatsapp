@@ -53,7 +53,7 @@ small{color:#888;font-size:11px}
 <input type="text" name="text" placeholder="Type a message..." required autocomplete="off">
 <button type="submit">➤</button>
 </form>
-<script>window.scrollTo(0,document.body.scrollHeight); setInterval(()=>{let i=document.querySelector('.sendbox input'); if(document.activeElement!==i && i.value.trim()===""){location.reload()}}, 5000);</script>
+<script>window.scrollTo(0,document.body.scrollHeight); let i=document.querySelector('.sendbox input'); i.value=localStorage.getItem('draft')||''; i.addEventListener('input',()=>{localStorage.setItem('draft', i.value)}); document.querySelector('.sendbox').addEventListener('submit',()=>{localStorage.removeItem('draft')});</script>
 </body></html>
 """
 
